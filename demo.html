@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>测试滚动</title>
+	<style type="text/css">
+		body,p{margin:0;padding:0;}
+		/* 测试结果 */
+        .result{
+            height: 17.787rem;
+            background: url('./images/result_bj.jpg') no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+        }
+        .result .top_desc{
+            width: 5.467rem;
+            height: 0.467rem;
+            position: absolute;
+            top: 0.467rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.3rem;
+            font-weight: 700;
+            font-stretch: normal;
+            letter-spacing: 0px;
+            color: #ffffff;
+        }
+        .result .top_name{
+            width: 2.0rem;
+            height: 0.5rem;
+            position: absolute;
+            top: 1.65rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.30rem;
+            font-weight: 700;
+            color: #ffffff;
+        }
+        .result .top_celebrity{
+            width: 4.933rem;
+            height: 0.8rem;
+            position: absolute;
+            top: 2.9rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: FZSEJW--GB1-0;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #d36420;
+            text-align: center;
+        }
+        .result .celebrity_head_img{
+            width: 4.413rem;
+            height: 5.587rem;
+            position: absolute;
+            top: 4.8rem;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .result .celebrity_head_img img{
+            width: 100%;
+        }
+        .result .bottom_result{
+            width: 7.747rem;
+            height: 2.387rem;
+            font-family: PingFang-SC-Medium;
+            font-size: 0.4rem;
+            font-weight: normal;
+            font-stretch: normal;
+            line-height: 0.667rem;
+            color: #ffffff;
+            position: absolute;
+            bottom: 4.4rem;
+            left: 52%;
+            transform: translateX(-50%);
+        }
+        .cyc_btn{
+            width: 3.96rem;
+            height: 0.88rem;
+            background: transparent;
+            position: absolute;
+            bottom: 1.9rem;
+            left: 0.587rem;
+        }
+	</style>
+	<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- <script type="text/javascript" src="http://html2canvas.hertzen.com/dist/html2canvas.js"></script> -->
+</head>
+<body>
+    <div class="result" id="result">
+        <div class="top_desc">银河系像顾戈一样的床品占2%</div>
+        <div class="top_name">顾戈的床品</div>
+        <div class="top_celebrity">柏拉图</div>
+        <div class="celebrity_head_img">
+            <img src="images/cle.png">
+        </div>
+        <div class="bottom_result">
+            测试报告是指把测试的过程和结果写成文档，对发现的问题和缺陷进行分析，为纠正软件的存在的质量问题提供依据，同时为软件验收和交付打下基础。
+        </div>
+        <div class="" id="cstjg">
+            
+        </div>
+        <div class="cyc_btn"></div>
+        <div class="share_btn"></div>
+    </div>
+
+    <div class="over">
+        <img src="" id="haibao">
+    </div>
+</body>
+<script type="text/javascript" src="js/html2canvas.js"></script>
+<script>
+
+
+    html2canvas($('.result').get(0), {   //$('.page-haibao').get(0)相当于doucument.getEelementsByClassName
+
+                                         // ("page-haibao")，该参数是以需要html2canvas以.page-haibao标签为
+
+                                         //画布，该画图是.container下的设计图的宽高，
+
+        useCORS: true
+      }).then((canvas) => {       
+        var dataURL = canvas.toDataURL('image/jpeg');//保存 html2canvas生成图片的路径dataURL 。
+        $('#haibao').attr('src', dataURL);//将图片保存在#haibao标签图片里面。
+ 
+      })
+
+
+
+
+
+//     convert2canvas() {
+ 
+//     var cntElem = $('#result')[0];
+ 
+//     var shareContent = cntElem;//需要截图的包裹的（原生的）DOM 对象
+//     var width = shareContent.offsetWidth; //获取dom 宽度
+//     var height = shareContent.offsetHeight; //获取dom 高度
+//     var canvas = document.createElement("canvas"); //创建一个canvas节点
+//     var scale = 2; //定义任意放大倍数 支持小数
+//     canvas.width = width * scale; //定义canvas 宽度 * 缩放
+//     canvas.height = height * scale; //定义canvas高度 *缩放
+//     canvas.getContext("2d").scale(scale, scale); //获取context,设置scale 
+//     var opts = {
+//         scale: scale, // 添加的scale 参数
+//         canvas: canvas, //自定义 canvas
+//         // logging: true, //日志开关，便于查看html2canvas的内部执行流程
+//         width: width, //dom 原始宽度
+//         height: height,
+//         useCORS: true // 【重要】开启跨域配置
+//     };
+ 
+//     html2canvas(shareContent, opts).then(function (canvas) {
+ 
+//         var context = canvas.getContext('2d');
+//         // 【重要】关闭抗锯齿
+//         context.mozImageSmoothingEnabled = false;
+//         context.webkitImageSmoothingEnabled = false;
+//         context.msImageSmoothingEnabled = false;
+//         context.imageSmoothingEnabled = false;
+        
+//         // 【重要】默认转化的格式为png,也可设置为其他格式
+//         var img = Canvas2Image.convertToJPEG(canvas, canvas.width, canvas.height);
+ 
+//         document.body.appendChild(img);
+ 
+//         $(img).css({
+//             "width": canvas.width / 2 + "px",
+//             "height": canvas.height / 2 + "px",
+//         }).addClass('f-full');
+ 
+//     });
+// }
+
+
+
+    // function ImageContainer(src, cors) {
+    //     this.src = src;
+    //     this.image = new Image();
+    //     var self = this;
+    //     this.tainted = null;
+    //     this.promise = new Promise(function(resolve, reject) {
+    //         self.image.onload = resolve;
+    //         self.image.onerror = reject;
+    //         if (cors) {
+    //             //self.image.crossOrigin = "anonymous";//1.去掉此处的anonymous代码改为空
+    //             self.image.crossOrigin = "";
+    //         }
+    //         //self.image.src = src;//2.在源src后面添加一个随机数如时间戳+"?"+new Date().getTime();
+    //         self.image.src = src+"?"+new Date().getTime();
+    //         if (self.image.complete === true) {
+    //             resolve(self.image);
+    //         }
+    //     });
+    // }
+
+
+
+
+
+</script>
+
+
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script>
+
+wx.config({
+    debug: true,
+    appId: '<?php echo $signPackage["appId"]; ?>',
+    timestamp: <?php echo $signPackage["timestamp"]; ?>,
+    nonceStr: '<?php echo $signPackage["nonceStr"]; ?>',
+    signature: '<?php echo $signPackage["signature"]; ?>',
+    jsApiList: [
+        // 所有要调用的 API 都要加到这个列表中
+          'getLocation',
+      ]
+});
+
+
+ wx.ready(function () {
+    wx.checkJsApi({
+        jsApiList: [
+            'getLocation'
+        ],
+        
+        success: function (res) {
+            // alert(JSON.stringify(res));
+            // alert(JSON.stringify(res.checkResult.getLocation));
+            if (res.checkResult.getLocation == false) {
+                alert('你的微信版本太低，不支持微信JS接口，请升级到最新的微信版本！');
+                return;
+            }
+        }
+    }); 
+    wx.error(function(res){
+        alert("接口调取失败")
+    });
+    wx.getLocation({
+      success: function (res) {
+        alert(JSON.stringify(res));
+      },
+      cancel: function (res) {
+        alert('用户拒绝授权获取地理位置');
+      }
+    });
+});
+ 
+</script>
+</html>

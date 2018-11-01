@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>劲爆大抽奖</title>
+	<script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
+    <script>
+	    // if ('addEventListener' in document) {
+	    //     document.addEventListener('DOMContentLoaded', function() {
+	    //       FastClick.attach(document.body);
+	    //     }, false);
+	    // }
+
+	    function refreshRem(){
+	        var clientWidth = document.documentElement.clientWidth;
+	        var htmlDom = document.getElementsByTagName('html')[0];
+	        htmlDom.style.fontSize = clientWidth/10+'px';
+	    }
+	    refreshRem();
+	    window.addEventListener('resize',function(){
+	        refreshRem();
+	    },false)
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/mobile_rest.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <style type="text/css">
+    	.wrap {
+	        width: 100%;
+	        height: 100%;
+	        overflow: hidden;
+	    }
+	    .wrap2 {
+	        width: 100%;
+	        height: 1000%;
+	        transition: 0.3s linear
+	    }
+	    .page {
+	        width: 100%;
+	        height: 10%
+	    }
+	    .page {
+	        text-align: center;
+	    }
+	    .music{
+	    	width: 0.8rem;
+	    	height: 0.8rem;
+	    	position: fixed;
+	    	top: 0.4rem;
+	    	right: 0.4rem;
+	    	z-index: 999;
+	    }
+	    /* music */
+		#audio_btn {
+		     width: 0.8rem;
+		     height: 0.8rem;
+		     background-image: url('images/on.png');
+		     background-size: contain;
+		 }
+		 #audio_btn.off{
+		 	background-image: url('images/off.png');
+		 }
+		  
+		 .rotate {
+		    -webkit-animation: rotating 1.2s linear infinite;
+		     -moz-animation: rotating 1.2s linear infinite;
+		     -o-animation: rotating 1.2s linear infinite;
+		     animation: rotating 1.2s linear infinite
+		 }
+		  
+		 @-webkit-keyframes rotating {
+		     from { -webkit-transform: rotate(0) }
+		     to { -webkit-transform: rotate(360deg) }
+		 }
+		  
+		 @keyframes rotating {
+		     from { transform: rotate(0) }
+		     to { transform: rotate(360deg) }
+		 }
+		 @-moz-keyframes rotating {
+		     from { -moz-transform: rotate(0) }
+		     to { -moz-transform: rotate(360deg) }
+		 }
+    </style>
+</head>
+<body>
+	<div class="music">
+		<div id="audio_btn" class="rotate">
+		    <audio loop src="images/Lenka - Unique.mp3" id="media" autoplay="" preload=""></audio>
+		</div>
+	</div>
+	<div id="app">
+		<div class="container">
+			<div style="position: relative;height: 100%;">
+				<div class="wrap" id="wrap">
+				    <div class="wrap2" id="wrap2">
+				    	<!-- 首页 -->
+				        <div class="page index" style="position: relative;">
+				        	<div class="cloud-img"></div>
+                			<div class="qjBtn">
+                				<span class="xjt"></span>
+                			</div>
+				        </div>
+				        <div class="page guide">
+				        	<div class="input_box">
+				        		<input type="username">
+				        	</div>
+				        	<div class="goin_box"></div>
+				        </div>
+				    </div>
+			    </div>
+		        <!-- 测试第一题 -->
+		        <div class="one" style="background:url('images/ceshi1.png') no-repeat;background-size: 100% 100%;">
+		        	<div class="problem" data-id="1">
+                        <img src="./images/time1.png" alt="1">
+                    </div>
+                    <div class="problem" data-id="2">
+                        <img src="./images/time2.png" alt="2">
+                    </div>
+                    <div class="problem" data-id="3">
+                        <img src="./images/time3.png" alt="3">
+                    </div>
+                    <div class="problem" data-id="4">
+                        <img src="./images/time4.png" alt="4">
+                    </div>
+		        </div>
+			    <!-- 测试第二题2 -->
+				<div class="sleepingPosture" style="background:url('images/ceshi2.png') no-repeat;background-size: 100% 100%;padding-top: 3.2rem;">
+					<a href="javascript:;" class="sleeping" data-id="1">
+                        <img src="./images/pose1.png" alt="1">
+                        <p>向往型睡姿</p>
+                    </a>
+                    <a href="javascript:;" class="sleeping" data-id="2">
+                        <img src="./images/pose2.png" alt="2">
+                        <p>自由落体型睡姿</p>
+                    </a>
+                    <a href="javascript:;" class="sleeping" data-id="3">
+                        <img src="./images/pose3.png" alt="3">
+                        <p>海星型睡姿</p>
+                    </a>
+                    <a href="javascript:;" class="sleeping" data-id="4">
+                        <img src="./images/pose4.png" alt="4">
+                        <p>婴儿型睡姿</p>
+                    </a>
+				</div>
+				<!-- 测试第三题3 -->
+				<div class="sleepingPosture" style="background:url('images/ceshi3.png') no-repeat;background-size: 100% 100%;padding-top: 3.5rem;">
+					<a href="javascript:;" class="bed" data-id="1">
+                        <img src="./images/bed1.png" alt="1">
+                        <p>蜜月式</p>
+                    </a>
+                    <a href="javascript:;" class="bed" data-id="2">
+                        <img src="./images/bed2.png" alt="2">
+                        <p>汤匙式</p>
+                    </a>
+                    <a href="javascript:;" class="bed" data-id="3">
+                        <img src="./images/bed3.png" alt="3">
+                        <p>亲臀式</p>
+                    </a>
+                    <a href="javascript:;" class="bed" data-id="4">
+                        <img src="./images/bed4.png" alt="4">
+                        <p>摇篮式</p>
+                    </a>
+				</div>
+				<!-- 测试第四题4 -->
+				<div class="sleepingPosture" style="background:url('images/ceshi4.png') no-repeat;background-size: 100% 100%;padding-top: 3.8rem;padding-left: 0.853rem;padding-right: 0.853rem;">
+					<a href="javascript:;" class="room" data-id="1">
+                        <img src="./images/room1.png" alt="1">
+                        <p>A</p>
+                    </a>
+                    <a href="javascript:;" class="room" data-id="2">
+                        <img src="./images/room2.png" alt="2">
+                        <p>B</p>
+                    </a>
+                    <a href="javascript:;" class="room" data-id="3">
+                        <img src="./images/room3.png" alt="3">
+                        <p>C</p>
+                    </a>
+                    <a href="javascript:;" class="room" data-id="4">
+                        <img src="./images/room4.png" alt="4">
+                        <p>D</p>
+                    </a>
+				</div>
+
+				<!-- 抽奖5 -->
+				<div class="draw">
+					<div class="winning_btn"></div>
+					<div class="rule_btn"></div>
+					<div class="scroll_area">
+						<div class="top_tips">
+							<div class="tips_content"  id="topuserContent">
+									<!-- <div class="tips_item">
+										<div class="user_img">
+											<img src="images/user_img.png">
+										</div>
+										<div class="user_word">叶一茜抽中现金券200元</div>
+									</div>
+									<div class="tips_item">
+										<div class="user_img">
+											<img src="images/user_img.png">
+										</div>
+										<div class="user_word">叶一茜抽中现金券300元</div>
+									</div> -->
+								<!-- <div>
+									<div class="tips_items">
+										<div class="user_img">
+											<img src="images/user_img.png">
+										</div>
+										<div class="user_word">叶一茜抽中现金券200元</div>
+									</div>
+								</div>
+								<div>幸凡学习网是一个免费提供代码分享的一个网站html5,js,前端&nbsp;&nbsp;&nbsp;&nbsp;</div> -->
+							</div>
+						</div>
+					</div>
+					<div class="turntable">
+						<div class="turn"></div>
+						<div class="go_btn"></div>
+						<div class="percent_icon"></div>
+					</div>
+					<div class="past_period"></div>
+					<div class="my_record"></div>
+					<div class="share"></div>
+					<div class="win_mask" style="display: none;">
+						<!-- 中奖了 -->
+						<div class="win_toast" style="display: none;">
+							<img src="images/toast.png" alt="">
+							<div class="win_content">
+								<div class="prize_name">
+									<!-- <span>赢得价值￥<span>33888元希腊蜜月游</span>大奖</span> -->
+								</div>
+								<div class="tel">
+			                      	<div>+86</div>
+			                      	<input type="tel" placeholder="填写手机号码领取">
+			                    </div>
+			                    <div class="verify">
+			                      	<input type="scm">
+			                     	<div>获取验证码</div>
+			                    </div>
+							</div>
+							<div class="see_btn"></div>
+						</div>
+						<!-- 中奖名单 -->
+						<div class="win_toast win_list" style="display: none;">
+							<img src="images/win_user.png" alt="">
+							<div class="win_user_box" id="userContent">
+								<!-- <div class="win_item">
+									<div class="user_img">
+										<img src="images/win_userImg.png">
+									</div>
+									<div class="user_name">来自火星的番茄</div>
+									<div class="prize_grade">三等奖</div>
+								</div>
+								<div class="win_item">
+									<div class="user_img">
+										<img src="images/win_userImg.png">
+									</div>
+									<div class="user_name">来自火星的番茄</div>
+									<div class="prize_grade">三等奖</div>
+								</div>
+								<div class="win_item">
+									<div class="user_img">
+										<img src="images/win_userImg.png">
+									</div>
+									<div class="user_name">来自火星的番茄</div>
+									<div class="prize_grade">三等奖</div>
+								</div>
+								<div class="win_item">
+									<div class="user_img">
+										<img src="images/win_userImg.png">
+									</div>
+									<div class="user_name">来自火星的番茄</div>
+									<div class="prize_grade">三等奖</div>
+								</div>
+								<div class="win_item">
+									<div class="user_img">
+										<img src="images/win_userImg.png">
+									</div>
+									<div class="user_name">来自火星的番茄</div>
+									<div class="prize_grade">三等奖</div>
+								</div>
+								<div class="win_item">
+									<div class="user_img">
+										<img src="images/win_userImg.png">
+									</div>
+									<div class="user_name">来自火星的番茄</div>
+									<div class="prize_grade">三等奖</div>
+								</div>
+								<div class="win_item">
+									<div class="user_img">
+										<img src="images/win_userImg.png">
+									</div>
+									<div class="user_name">来自火星的番茄</div>
+									<div class="prize_grade">三等奖</div>
+								</div>
+								<div class="win_item">
+									<div class="user_img">
+										<img src="images/win_userImg.png">
+									</div>
+									<div class="user_name">来自火星的番茄</div>
+									<div class="prize_grade">三等奖</div>
+								</div>
+								<div class="win_item">
+									<div class="user_img">
+										<img src="images/win_userImg.png">
+									</div>
+									<div class="user_name">来自火星的番茄</div>
+									<div class="prize_grade">一等奖</div>
+								</div> -->
+							</div>
+							<div class="colse_btn"></div>
+						</div>
+						<!-- 分享 -->
+						<div class="arrow" style="display: none;">
+                              <img src="./images/arrow.png" alt="">
+                              <div class="my_know"></div>
+                        </div>
+					</div>
+				</div>
+
+				<!-- 抽奖规则7 -->
+				<div class="draw_rule">
+					<p>1、免费抽奖，免费到喜临门实体门店领奖。</p>
+					<p>2、每个微信ID最多可抽奖两次，  两次中奖奖品二选一。</p>
+					<p>3、本次活动中奖率为100%。</p>
+					<p>4、礼物兑换时间: 11月2日-12月2日，逾期视为自动放弃。</p>
+					<p>5、所有奖品不退换，不折现，不享受售后服务。</p>
+					<p>6、现金奖仅在购物过程中抵用，满3000元可使用1张。</p>
+					<p>7、特等奖最终中奖结果，以官微公示结果为准。</p>
+					<p>8、特等奖产生的个人所得税由中奖者个人承担。</p>
+					<p>9、喜临门员工、家属、加盟商、导购不得参与本次活动，此类人群中奖无效。</p>
+					<p>10、本活动最终解释权归喜临门家具股份有限公司所有。</p>
+					<p>11、 具体内容请关注公众号。</p>
+					<p class="ewm">
+						<img src="images/gzhewm.png">
+					</p>
+				</div>
+
+				<!-- 中奖记录8 -->
+				<div class="my_record_box">
+					<div class="record_box" id="recordContent">
+						
+					</div>
+					<div class="exchange_btn"></div>
+					<div class="store_btn"></div>
+					<div class="record_mask" style="display: none;">
+						<div class="mask_content">
+							<div class="maskImg">
+								<p>是否核销？</p>
+								<p>仅限工作人员在场进行核销否则概不负责</p>
+							</div>
+							<div class="cancel_box"></div>
+							<div class="sure_box"></div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 测试结果9 -->
+				<div class="result">
+					<!-- <div class="top_desc">银河系像顾戈一样的床品占2%</div>
+					<div class="top_name">顾戈的床品</div>
+					<div class="top_celebrity">柏拉图</div>
+					<div class="celebrity_head_img">
+						<img src="images/cle.png">
+					</div>
+					<div class="bottom_result">
+						测试报告是指把测试的过程和结果写成文档，对发现的问题和缺陷进行分析，为纠正软件的存在的质量问题提供依据，同时为软件验收和交付打下基础。
+					</div> -->
+					<div class="" id="cstjg">
+						
+					</div>
+					<div class="cyc_btn"></div>
+					<div class="share_btn">
+						<div class="over">
+					        <img src="" id="haibao" class="loog" ontouchstart="gtouchstart()">
+					    </div>
+					</div>
+				</div>
+					
+				<!-- 门店10 -->
+				<div class="store">
+					<div class="store_item">
+						<p>1.杭州万象城店</p>
+						<p>展示店的地址：浙江省杭州市江干区富春路1号</p>
+						<p>展示店的地址：浙江省杭州市江干区富春路1号</p>
+					</div>
+					<div class="store_item">
+						<p>2.杭州万象城店</p>
+						<p>展示店的地址：浙江省杭州市江干区富春路1号</p>
+						<p>展示店的地址：浙江省杭州市江干区富春路1号</p>
+					</div>
+					<div class="store_item">
+						<p>3.杭州万象城店</p>
+						<p>展示店的地址：浙江省杭州市江干区富春路1号</p>
+						<p>展示店的地址：浙江省杭州市江干区富春路1号</p>
+					</div>
+					<div class="btn_box">
+						<div class="back_btn"></div>
+					</div>
+				</div>
+
+				<!-- 往期回顾 -->
+				<div class="history_box">
+					<img src="images/historyShow.jpg">
+				</div>
+
+				<!-- 生成海报 -->
+				<!-- <div class="over">
+			        <img src="" id="haibao">
+			    </div> -->
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="js/zepto.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+<script type="text/javascript" src="js/zepto.fx.js"></script>
+<script type="text/javascript" src="js/template-web.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/scroll.js"></script>
+
+<script type="text/javascript" src="js/html2canvas.js"></script>
+
+<!-- 中奖名单列表模板 -->
+<script type="text/template" id="userList">
+	{{ each items as value index}}
+		<div class="win_item">
+			<div class="user_img">
+				<img src="{{value.headimgurl}}">
+			</div>
+			<div class="user_name">{{value.nickname}}</div>
+			<div class="prize_grade">{{value.prizeName}}</div>
+		</div>
+	{{/each}}
+</script>
+
+<script type="text/template" id="topuserList">
+	{{ each items as value index}}
+		<div class="tips_item">
+			<div class="user_img">
+				<img src="{{value.headimgurl}}">
+			</div>
+			<div class="user_word">{{value.nickname}}抽中{{value.goodsName}}</div>
+		</div>
+	{{/each}}
+</script>
+
+<!-- 测试题结果 -->
+<script type="text/template" id="useranse">
+	<div class="top_desc">{{items.title}}</div>
+	<div class="top_name">{{items.titlename}}</div>
+	<div class="top_celebrity">{{items.headName}}</div>
+	<div class="celebrity_head_img">
+		<img src="{{items.headUrl}}">
+	</div>
+	<div class="bottom_result">
+		{{items.result}}
+	</div>
+</script>
+
+<!-- 中奖纪录 -->
+<script type="text/template" id="recordList">
+	{{ each items as value index}}
+		<p>{{items[index].name}}</p>
+	{{/each}}
+</script>
+
+
+
+<script type="text/javascript">
+  //重要！禁止移动端滑动的默认事件
+	// document.body.addEventListener('touchmove', function(event) {
+	//     event.preventDefault();
+	// }, {passive: false})
+  var pages = function(obj) {
+    var box = document.getElementById(obj.wrap);
+    var box2 = document.getElementById(obj.wrap2);
+    var len = obj.len;
+    var n = obj.n;
+    var startY, moveY, cliH;
+    //获取屏幕高度
+    var getH = function() {
+      cliH = document.body.clientHeight
+    };
+    getH();
+    window.addEventListener('resize', getH, false);
+    //touchStart
+    var touchstart = function(event) {
+      if(!event.touches.length) {
+        return;
+      }
+      startY = event.touches[0].pageY;
+      moveY = 0;
+    };
+    //touchMove
+    var touchmove = function(event) {
+      if(!event.touches.length) {
+        return;
+      }
+      moveY = event.touches[0].pageY - startY;
+      box2.style.transform = 'translateY(' + (-n * cliH + moveY) + 'px)'; //根据手指的位置移动页面
+    };
+    //touchEnd
+    var touchend = function(event) {
+      //位移小于+-50的不翻页
+      if(moveY < -50) n++;
+      if(moveY > 50) n--;
+      //最后&最前页控制
+      if(n < 0) n = 0;
+      if(n > len - 1) n = len - 1;
+      //重定位
+      box2.style.transform = 'translateY(' + (-n * 10) + '%)'; //根据百分比位置移动页面
+      console.log(n)
+    };
+    //touch事件绑定
+    box.addEventListener("touchstart", function(event) {
+      touchstart(event)
+    }, false);
+    box.addEventListener("touchmove", function(event) {
+      touchmove(event)
+    }, false);
+    box.addEventListener("touchend", function(event) {
+      touchend(event)
+    }, false);
+  };
+  pages({
+    wrap: 'wrap', //.wrap的id
+    wrap2: 'wrap2', //.wrap2的id
+    len: 2, //一共有几页
+    n: 0 //页面一打开默认在第几页？第一页就是0，第二页就是1
+  });
+
+
+
+ //   $("#audio_btn").click(function(){
+	//     $(this).toggleClass("rotate"); //控制音乐图标 自转或暂停
+	// })
+	var x = document.getElementById("media");
+	 $(function(){
+	     $("#audio_btn").click(function(){
+	         $(this).toggleClass("rotate"); //控制音乐图标 自转或暂停
+	          
+	         //控制背景音乐 播放或暂停           
+	         if($(this).hasClass("rotate")){
+	         	console.log("播放")
+	         	$(this).removeClass("off");
+	             // x.play();
+	             document.getElementById("media").play();
+	         }else{
+	         	console.log("暂停")
+	         	$(this).addClass("off");
+	             // x.pause();
+	             document.getElementById("media").pause();
+	         }
+	     })
+	 });
+
+
+	 
+
+
+</script>
+</html>
